@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="14.0.1" class="java.beans.XMLDecoder">
+ <object class="zoo.Zoo1" id="Zoo10">
+  <void property="listeCg">
+   <void method="add">
+    <object class="cages.EnclosStandard">
+     <void property="environnement">
+      <object class="cages.Savane"/>
+     </void>
+     <void property="hauteur">
+      <double>526.0</double>
+     </void>
+     <void property="largeur">
+      <double>165.0</double>
+     </void>
+     <void property="listeAnim">
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <object class="animal.Ours"/>
+       </void>
+       <void method="add">
+        <object class="animal.Ours"/>
+       </void>
+       <void method="add">
+        <object class="animal.Vautour"/>
+       </void>
+       <void method="add">
+        <object class="animal.Vautour"/>
+       </void>
+      </object>
+     </void>
+     <void property="longueur">
+      <double>158.0</double>
+     </void>
+     <void property="nomCage">
+      <string>Cage d&apos;Ours</string>
+     </void>
+     <void property="surface">
+      <int>180</int>
+     </void>
+     <void property="typeCage">
+      <string>metal</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="cages.Voliere">
+     <void property="environnement">
+      <object class="cages.Savane"/>
+     </void>
+     <void property="hauteur">
+      <double>756.0</double>
+     </void>
+     <void property="largeur">
+      <double>589.0</double>
+     </void>
+     <void property="listeAnim">
+      <object class="java.util.ArrayList"/>
+     </void>
+     <void property="longueur">
+      <double>156.0</double>
+     </void>
+     <void property="nomCage">
+      <string>Cage de Vautours</string>
+     </void>
+     <void property="surface">
+      <int>140</int>
+     </void>
+     <void property="typeCage">
+      <string>titane</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>
