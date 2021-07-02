@@ -1,12 +1,13 @@
 package comportement;
 
-public class Ramper implements Deplacement{
+public class Ramper implements Deplacement {
 
-	Ramper(){
-		
+	public Ramper() {
+
 	}
-public void seDeplacer () {
-	System.out.println("Je rampe");
-}
-	
+
+	public void seDeplacer() {
+		System.out.println("Je rampe");
+	}
+
 }

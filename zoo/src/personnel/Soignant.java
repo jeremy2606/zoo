@@ -1,4 +1,4 @@
-package zoo;
+package personnel;
 
 public class Soignant extends Personnel {
 

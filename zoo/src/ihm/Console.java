@@ -1,6 +1,9 @@
-package zoo;
+package ihm;
 
 import java.util.Scanner;
+
+import zoo.Zoo1;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 

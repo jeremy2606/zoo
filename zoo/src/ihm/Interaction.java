@@ -1,4 +1,6 @@
-package zoo;
+package ihm;
+
+import zoo.Zoo1;
 
 public interface Interaction {
 	

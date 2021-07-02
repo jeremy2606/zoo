@@ -1,4 +1,4 @@
-package zoo;
+package personnel;
 
 public class Gardien extends Personnel {
 
