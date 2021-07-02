@@ -39,10 +39,10 @@ public class Utilititaire {
 		int insert = 0;
 		try {
 			connecteurBD();
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO animal VALUES(?,?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO animal VALUES(null,?,?,?,?)");
 			while (!exit.toUpperCase().equals("N")) {
-				System.out.println("Entrer un id pour votre animal");
-				int animal_id1 = Integer.parseInt(sc.nextLine());// on ne peut pas mettre
+
+				// on ne peut pas mettre
 				// difdferent type de next() donc
 				// ou on met un nextLine derriere le nextInt ou on met tout en netxLine
 				// dc on convertit une
@@ -57,11 +57,10 @@ public class Utilititaire {
 				System.out.println("Entrer un commentaire ");
 				String commentaire1 = sc.nextLine();
 
-				ps.setInt(1, animal_id1);
-				ps.setString(2, nom1);
-				ps.setInt(3, type_animal_id1);
-				ps.setInt(4, enclos_id1);
-				ps.setString(5, commentaire1);
+				ps.setString(1, nom1);
+				ps.setInt(2, type_animal_id1);
+				ps.setInt(3, enclos_id1);
+				ps.setString(4, commentaire1);
 				System.out.println("Voulez vous continuer? O/n");
 				exit = sc.nextLine();
 				insert = ps.executeUpdate();// sert a connaitre le nbre de ligne affecté uniquement. pas indispensable
