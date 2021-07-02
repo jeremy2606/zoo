@@ -24,8 +24,8 @@ public class Utilititaire {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver ok");
 			String url = "jdbc:mysql://localhost:3306/zoo";
-			String utilisateur = "root";
-			String password = "Nefara845.";
+			String utilisateur = "zoouser";
+			String password = "zoopassword";
 			conn = DriverManager.getConnection(url, utilisateur, password);
 			System.out.println("Connexion bien etablie!");
 		} catch (Exception ex) {
