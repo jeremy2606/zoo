@@ -5,3 +5,7 @@
 /ours.txt
 /ours3.txt
 /simba.xml
+pom.xml
+/target
+/.idea
+/.settings

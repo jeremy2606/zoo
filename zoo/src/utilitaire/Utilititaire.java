@@ -1,18 +1,13 @@
 package utilitaire;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import animal.Animaux;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import animal.Animaux;
-
 public class Utilititaire {
-	static Connection conn;
+	public static Connection conn;
 	static Statement st;
 	static ResultSet rs;
 	static ResultSet result;
