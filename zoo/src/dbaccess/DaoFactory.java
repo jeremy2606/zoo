@@ -29,6 +29,9 @@ public class DaoFactory {
 	public DbTypeAnimal getTypeAnimalDao() {
 		return new DbTypeAnimal(conn);
 	}
+	// public DbTypeAnimal getTypeAnimalDao() {
+	// return new DbTypeAnimal(conn);
+	// }
 
 	public DbTypeRegimeAlimentaire getTypeRegimeAlimentaireDao() {
 		return new DbTypeRegimeAlimentaire(conn);
@@ -36,6 +39,10 @@ public class DaoFactory {
 
 	public DbTypeEnvironnement getTypeEnvironnementDao() {
 		return new DbTypeEnvironnement(conn);
+	}
+
+	public TypeEnclosDao getTypeEnclosDao() {
+		return new TypeEnclosDao(conn);
 	}
 
 //	A décommenter par chacune des équipes en charge de la fonction
