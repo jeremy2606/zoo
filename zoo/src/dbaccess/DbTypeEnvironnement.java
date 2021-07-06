@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DbTypeEnvironnement implements TypeRegimeAlimentaireInterface {
+public class DbTypeEnvironnement implements TypeEnvironnementInterface {
 
 	static Statement query = null;
 
