@@ -1,5 +1,7 @@
 package test;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import dbaccess.DaoFactory;
@@ -18,6 +20,13 @@ class TestTypeRegimeAlimentaireDAO extends TestCase {
 		TypeRegimeAlimentaire t = dao.get(1);
 		// System.out.println(t);
 		assertNotNull(t);
+		assertEquals(1, t.getId());
+	}
+
+	@Test
+	void testGetAll() {
+		List<TypeRegimeAlimentaire> lt = dao.getAll();
+		assertEquals(lt.size(), 3);
 	}
 
 }

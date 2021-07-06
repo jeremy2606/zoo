@@ -45,7 +45,7 @@ public class DbTypeRegimeAlimentaire implements TypeRegimeAlimentaireInterface {
 		try {
 			Statement query;
 			query = this.c.createStatement();
-			ResultSet result = query.executeQuery("SELECT * FROM type_regime_alimentaire_id");
+			ResultSet result = query.executeQuery("SELECT * FROM type_regime_alimentaire;");
 			while (result.next()) {
 				listTypeRegimeAlimentaire.add(new TypeRegimeAlimentaire(result.getInt(1), result.getString(2)));
 			}
