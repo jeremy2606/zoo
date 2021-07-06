@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import dbaccess.DaoFactory;
 import dbaccess.DbTypeRegimeAlimentaire;
 import dbaccess.TypeRegimeAlimentaire;
 import ihm.Interaction;
@@ -47,8 +48,8 @@ public class AppliZoo {
 //		listActeur.add(vautour2);
 //		listActeur.add(ours1);
 //		listActeur.add(lion1);
-
-		DbTypeRegimeAlimentaire dtra = new DbTypeRegimeAlimentaire();
+		DaoFactory df = DaoFactory.getInstance();
+		DbTypeRegimeAlimentaire dtra = df.getTypeRegimeAlimentaireDao();
 		TypeRegimeAlimentaire ta = dtra.get(1);
 		System.out.println(ta);
 		// listActeur.add(plante2);

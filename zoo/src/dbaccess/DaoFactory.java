@@ -5,34 +5,35 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DaoFactory {
-	private Connection conn;
+	private static Connection conn;
 	private static String user = "zoouser";
 	private static String pwd = "zoopassword";
 
-	public DaoFactory() {
-		try {
-			Class driver = Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		try {
-			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/culture_advisor", user, pwd);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	private DaoFactory() {
 	}
-	
-	Connection getInstance() {
-		if(conn==null) {
-			new DaoFactory();
+
+	public static DaoFactory getInstance() {
+		if (DaoFactory.conn == null) {
+			try {
+				Class driver = Class.forName("com.mysql.cj.jdbc.Driver");
+				DaoFactory.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoo", user, pwd);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		return this.conn;
+		return new DaoFactory();
 	}
-	
-	public DbTypeAnimal getTypeAnimalDao() {
-		return new DbTypeAnimal(this.getInstance());
+
+//	public DbTypeAnimal getTypeAnimalDao() {
+//		return new DbTypeAnimal(conn);
+//	}
+
+	public DbTypeRegimeAlimentaire getTypeRegimeAlimentaireDao() {
+		return new DbTypeRegimeAlimentaire(conn);
 	}
-	
+
 //	A décommenter par chacune des équipes en charge de la fonction
 //	public DbAnimal getAnimalDao() {
 //		return new DbAnimal(this.getInstance());
