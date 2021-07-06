@@ -8,13 +8,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
 
-import animal.Animaux;
-import animal.Lion;
-import animal.Ours;
-import animal.Vache;
-import animal.Vautour;
+import dbaccess.DbTypeRegimeAlimentaire;
+import dbaccess.TypeRegimeAlimentaire;
 import ihm.Interaction;
 import utilitaire.Utilititaire;
 
@@ -32,25 +28,29 @@ public class AppliZoo {
 
 		// ObjectOutputStream oout = null;
 
-		Vautour vautour1 = new Vautour();
-		Vautour vautour2 = new Vautour();
-		Lion lion1 = new Lion();
-		Vache Vache1 = new Vache();
-		Ours ours1 = new Ours();
+//		Vautour vautour1 = new Vautour();
+//		Vautour vautour2 = new Vautour();
+//		Lion lion1 = new Lion();
+//		Vache Vache1 = new Vache();
+//		Ours ours1 = new Ours();
+//
+//		// Zoo zoo = new Zoo(listCage);
+//		// System.out.println(zoo.toString());
+//
+//		Plante plante1 = new Plante("Sapin", 250, "");
+//		Plante plante2 = new Plante("cedre", 280, "");
+//
+//		ArrayList<Animaux> listAnimaux = new ArrayList<Animaux>();
+//
+//		ArrayList<Acteur> listActeur = new ArrayList<Acteur>();
+//		listActeur.add(vautour1);
+//		listActeur.add(vautour2);
+//		listActeur.add(ours1);
+//		listActeur.add(lion1);
 
-		// Zoo zoo = new Zoo(listCage);
-		// System.out.println(zoo.toString());
-
-		Plante plante1 = new Plante("Sapin", 250, "");
-		Plante plante2 = new Plante("cedre", 280, "");
-
-		ArrayList<Animaux> listAnimaux = new ArrayList<Animaux>();
-
-		ArrayList<Acteur> listActeur = new ArrayList<Acteur>();
-		listActeur.add(vautour1);
-		listActeur.add(vautour2);
-		listActeur.add(ours1);
-		listActeur.add(lion1);
+		DbTypeRegimeAlimentaire dtra = new DbTypeRegimeAlimentaire();
+		TypeRegimeAlimentaire ta = dtra.get(1);
+		System.out.println(ta);
 		// listActeur.add(plante2);
 		// listActeur.add(plante1);
 
@@ -95,7 +95,7 @@ public class AppliZoo {
 //		} catch (final Exception e) {
 //			e.printStackTrace();
 //		}
-		// } catch (final ClassNotFoundException e) {
+		// } catch (final ClassNotFoundException eMuph) {
 		// e.printStackTrace();
 		// }
 		// finally {
