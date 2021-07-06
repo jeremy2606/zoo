@@ -26,9 +26,9 @@ public class DaoFactory {
 		return new DaoFactory();
 	}
 
-//	public DbTypeAnimal getTypeAnimalDao() {
-//		return new DbTypeAnimal(conn);
-//	}
+	public DbTypeAnimal getTypeAnimalDao() {
+		return new DbTypeAnimal(conn);
+	}
 
 	public DbTypeRegimeAlimentaire getTypeRegimeAlimentaireDao() {
 		return new DbTypeRegimeAlimentaire(conn);
