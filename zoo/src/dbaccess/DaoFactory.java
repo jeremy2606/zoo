@@ -34,6 +34,10 @@ public class DaoFactory {
 		return new DbTypeRegimeAlimentaire(conn);
 	}
 
+	public DbTypeEnvironnement getTypeEnvironnementDao() {
+		return new DbTypeEnvironnement(conn);
+	}
+
 //	A décommenter par chacune des équipes en charge de la fonction
 //	public DbAnimal getAnimalDao() {
 //		return new DbAnimal(this.getInstance());
