@@ -7,7 +7,4 @@ public interface TypeRegimeAlimentaireInterface {
 
 	public List<TypeRegimeAlimentaire> getAll();
 
-    TypeRegimeAlimentaire get(int id);
-    List<TypeRegimeAlimentaire> getAll();
-
 }
