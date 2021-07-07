@@ -1,5 +1,8 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +14,7 @@ import dbaccess.TypeAnimal;
 import junit.framework.TestCase;
 
 @DisplayName("When running TypeAnimal")
-class TestTypeAnimalDAO extends TestCase {
+class TestTypeAnimalDAO {
 	
 	static DbTypeAnimal dao;
 
