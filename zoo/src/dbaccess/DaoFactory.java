@@ -29,6 +29,14 @@ public class DaoFactory {
 	public DbTypeAnimal getTypeAnimalDao() {
 		return new DbTypeAnimal(conn);
 	}
+	
+	public DbAnimal getAnimalDao() {
+		return new DbAnimal(conn);
+	}
+	
+	public DbEnclos getEnclosDao() {
+		return new DbEnclos(conn);
+	}
 	// public DbTypeAnimal getTypeAnimalDao() {
 	// return new DbTypeAnimal(conn);
 	// }
