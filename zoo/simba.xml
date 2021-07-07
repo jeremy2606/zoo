@@ -16,10 +16,10 @@
      <void property="listeAnim">
       <object class="java.util.ArrayList">
        <void method="add">
-        <object class="animal.Ours"/>
+        <object class="animalDTO.Ours"/>
        </void>
        <void method="add">
-        <object class="animal.Ours"/>
+        <object class="animalDTO.Ours"/>
        </void>
       </object>
      </void>
@@ -51,10 +51,10 @@
      <void property="listeAnim">
       <object class="java.util.ArrayList">
        <void method="add">
-        <object class="animal.Vautour"/>
+        <object class="animalDTO.Vautour"/>
        </void>
        <void method="add">
-        <object class="animal.Vautour"/>
+        <object class="animalDTO.Vautour"/>
        </void>
       </object>
      </void>

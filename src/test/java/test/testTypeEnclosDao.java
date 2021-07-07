@@ -7,9 +7,11 @@ import org.junit.jupiter.api.Test;
 import dbaccess.DaoFactory;
 import dbaccess.TypeEnclos;
 import dbaccess.TypeEnclosDao;
-import junit.framework.TestCase;
 
-class TestTypeEnclosDao extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+class TestTypeEnclosDao  {
 
 	TypeEnclosDao dao;
 

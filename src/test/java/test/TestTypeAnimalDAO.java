@@ -1,8 +1,5 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
@@ -12,8 +9,11 @@ import dbaccess.DaoFactory;
 import dbaccess.DbTypeAnimal;
 import dbaccess.TypeAnimal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @DisplayName("When running TypeAnimal")
-class TestTypeAnimalDAO {
+class TestTypeAnimalDAO  {
 	
 	static DbTypeAnimal dao;
 

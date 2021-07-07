@@ -12,9 +12,9 @@ public class DbAnimal implements AnimalInterface {
         this.connection = connection;
     }
 
-    public Animal get(int id) {
+    public AnimalDTO get(int id) {
 
-        Animal animal = null;
+        AnimalDTO animalDTO = null;
         ResultSet result;
         String SQLString = "SELECT * FROM animal WHERE id=?;";
         try {
@@ -22,41 +22,41 @@ public class DbAnimal implements AnimalInterface {
             preparedStatement.setInt(1, id);
             result = preparedStatement.executeQuery();
             if (result.next()) {
-                animal = new Animal(result.getInt(1), result.getString(2), result.getInt(3), result.getInt(4), result.getString(5));
+                animalDTO = new AnimalDTO(result.getInt(1), result.getString(2), result.getInt(3), result.getInt(4), result.getString(5));
             }
             result.close();
             preparedStatement.close();
         } catch (SQLException exception) {
             System.out.println(exception.getMessage());
         }
-        return animal;
+        return animalDTO;
     }
 
-    public List<Animal> getAll() {
-        List<Animal> listAnimal = new ArrayList<>();
+    public List<AnimalDTO> getAll() {
+        List<AnimalDTO> listAnimalDTO = new ArrayList<>();
         try {
             Statement query;
             query = connection.createStatement();
             ResultSet result = query.executeQuery("SELECT * FROM animal;");
             while (result.next()) {
-                listAnimal.add(new Animal(result.getInt(1), result.getString(2), result.getInt(3), result.getInt(4), result.getString(5)));
+                listAnimalDTO.add(new AnimalDTO(result.getInt(1), result.getString(2), result.getInt(3), result.getInt(4), result.getString(5)));
             }
             result.close();
             query.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }
-        return listAnimal;
+        return listAnimalDTO;
     }
 
     @Override
-    public void save(Animal animal) {
+    public void save(AnimalDTO animalDTO) {
         String SQLString = "INSERT INTO animal (name, type_animal_id, enclos_id, commentaires)VALUES (?,?,?,?) ;";
         try (PreparedStatement saveAnimal = connection.prepareStatement(SQLString)) {
-            saveAnimal.setString(1, animal.getName());
-            saveAnimal.setInt(2, animal.getTypeAnimalId());
-            saveAnimal.setInt(3, animal.getEnclosId());
-            saveAnimal.setString(4, animal.getCommentaires());
+            saveAnimal.setString(1, animalDTO.getName());
+            saveAnimal.setInt(2, animalDTO.getTypeAnimalId());
+            saveAnimal.setInt(3, animalDTO.getEnclosId());
+            saveAnimal.setString(4, animalDTO.getCommentaires());
             saveAnimal.executeUpdate();
             connection.commit();
         } catch (SQLException sqlException) {
@@ -66,15 +66,15 @@ public class DbAnimal implements AnimalInterface {
 
 
     @Override
-    public void update(Animal animal) {
+    public void update(AnimalDTO animalDTO) {
         String SQLString = "UPDATE animal SET name=?, type_animal_id=?, enclos_id=?, commentaires=? " +
                 "WHERE id = ?;";
         try (PreparedStatement updateAnimal = connection.prepareStatement(SQLString)) {
-            updateAnimal.setString(1, animal.getName());
-            updateAnimal.setInt(2, animal.getTypeAnimalId());
-            updateAnimal.setInt(3, animal.getEnclosId());
-            updateAnimal.setString(4, animal.getCommentaires());
-            updateAnimal.setInt(5, animal.getId());
+            updateAnimal.setString(1, animalDTO.getName());
+            updateAnimal.setInt(2, animalDTO.getTypeAnimalId());
+            updateAnimal.setInt(3, animalDTO.getEnclosId());
+            updateAnimal.setString(4, animalDTO.getCommentaires());
+            updateAnimal.setInt(5, animalDTO.getId());
             updateAnimal.executeUpdate();
             connection.commit();
         } catch (SQLException sqlException) {
@@ -83,10 +83,10 @@ public class DbAnimal implements AnimalInterface {
     }
 
     @Override
-    public void delete(Animal animal) {
+    public void delete(AnimalDTO animalDTO) {
         String SQLString = "DELETE FROM animal WHERE id=?;";
         try (PreparedStatement updateAnimal = connection.prepareStatement(SQLString)) {
-            updateAnimal.setInt(1, animal.getId());
+            updateAnimal.setInt(1, animalDTO.getId());
             updateAnimal.executeUpdate();
             connection.commit();
         } catch (SQLException sqlException) {

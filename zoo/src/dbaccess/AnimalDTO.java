@@ -1,6 +1,6 @@
 package dbaccess;
 
-public class Animal {
+public class AnimalDTO {
 
     private int id;
     private String name;
@@ -8,7 +8,7 @@ public class Animal {
     private int enclosId;
     private String commentaires;
 
-    public Animal(int id, String name, int typeAnimalId, int enclosId, String commentaires) {
+    public AnimalDTO(int id, String name, int typeAnimalId, int enclosId, String commentaires) {
         this.id = id;
         this.name = name;
         this.typeAnimalId = typeAnimalId;
@@ -16,7 +16,7 @@ public class Animal {
         this.commentaires = commentaires;
     }
 
-    public Animal() {
+    public AnimalDTO() {
     }
 
     public int getId() {
@@ -61,7 +61,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "AnimalDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", typeAnimalId=" + typeAnimalId +
