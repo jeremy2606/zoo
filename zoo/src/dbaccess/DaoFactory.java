@@ -38,13 +38,12 @@ public class DaoFactory {
 		return new DbTypeEnvironnement(conn);
 	}
 
-//	A décommenter par chacune des équipes en charge de la fonction
-//	public DbAnimal getAnimalDao() {
-//		return new DbAnimal(this.getInstance());
-//	}
-//
+	public DbAnimal getAnimalDao() {
+		return new DbAnimal(conn);
+	}
+
 //	public DbEnclos getEnclosDao() {
-//		return new DbEnclos(this.getInstance());
+//		return new DbEnclos(conn);
 //	}
 
 }
