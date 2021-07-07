@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import dbaccess.DaoFactory;
 import dbaccess.DbTypeAnimal;
 import dbaccess.TypeAnimal;
-import junit.framework.TestCase;
 
 @DisplayName("When running TypeAnimal")
 class TestTypeAnimalDAO {
