@@ -1,26 +1,52 @@
 package dbaccess;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class DbAnimalEnrico implements AnimalInterface {
+public class DbAnimal implements AnimalInterface {
 
     private Connection connection;
 
-    public DbAnimalEnrico(Connection connection) {
+    public DbAnimal(Connection connection) {
         this.connection = connection;
     }
 
-    @Override
     public Animal get(int id) {
-        return null;
+
+        Animal animal = null;
+        ResultSet result;
+        String SQLString = "SELECT * FROM animal WHERE id=?;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQLString);
+            preparedStatement.setInt(1, id);
+            result = preparedStatement.executeQuery();
+            if (result.next()) {
+                animal = new Animal(result.getInt(1), result.getString(2), result.getInt(3), result.getInt(4), result.getString(5));
+            }
+            result.close();
+            preparedStatement.close();
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+        }
+        return animal;
     }
 
-    @Override
     public List<Animal> getAll() {
-        return null;
+        List<Animal> listAnimal = new ArrayList<>();
+        try {
+            Statement query;
+            query = connection.createStatement();
+            ResultSet result = query.executeQuery("SELECT * FROM animal;");
+            while (result.next()) {
+                listAnimal.add(new Animal(result.getInt(1), result.getString(2), result.getInt(3), result.getInt(4), result.getString(5)));
+            }
+            result.close();
+            query.close();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        return listAnimal;
     }
 
     @Override
