@@ -1,7 +1,5 @@
 package zoo;
 
-import ihm.IhmConsole;
-
 import java.util.Arrays;
 import java.util.List;
 
