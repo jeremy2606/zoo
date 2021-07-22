@@ -1,16 +1,12 @@
 package dbaccess;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DbEnclos implements EnclosInterface {
-	
-	private Connection connection;
+
+    private Connection connection;
 
     public DbEnclos(Connection connection) {
         this.connection = connection;
@@ -95,5 +91,5 @@ public class DbEnclos implements EnclosInterface {
             sqlException.printStackTrace();
         }
     }
-	
+
 }

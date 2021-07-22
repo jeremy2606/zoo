@@ -1,13 +1,13 @@
 package cages;
 
-import java.util.ArrayList;
+import animal.Animal;
 
-import animal.Animaux;
+import java.util.ArrayList;
 
 abstract public class Cage {
 	
 	String nomCage;
-	ArrayList<Animaux>listeAnim;
+	ArrayList<Animal>listeAnim;
 	 int surface;
 	 double longueur;
 	 double largeur;
@@ -19,7 +19,7 @@ abstract public class Cage {
 		 
 	 }
 	 
-	 public Cage(String nomCage,ArrayList<Animaux>listeAnim, int surface, double longueur,double largeur,double hauteur,  String typeCage ,Environnement environnement) {
+	 public Cage(String nomCage,ArrayList<Animal>listeAnim, int surface, double longueur,double largeur,double hauteur,  String typeCage ,Environnement environnement) {
 		
 		this.nomCage = nomCage;
 		this.listeAnim = listeAnim;
@@ -33,15 +33,11 @@ abstract public class Cage {
 
 
 
-public  boolean isSuitableFor(Animaux anim) {
-	if (anim.getTypeCage().equals(this.getClass().getName())) {
-		 
-		return true;
-	}
-	return false;
+public  boolean isSuitableFor(Animal anim) {
+	return anim.getTypeEnclos().equals(this.getClass().getName());
 }
 
-public void ajourAnimal(Animaux anim) {
+public void ajourAnimal(Animal anim) {
 	
 }
 
@@ -60,11 +56,11 @@ public void setNomCage(String nomCage) {
 	this.nomCage = nomCage;
 }
 
-public ArrayList<Animaux> getListeAnim() {
+public ArrayList<Animal> getListeAnim() {
 	return listeAnim;
 }
 
-public void setListeAnim(ArrayList<Animaux> listeAnim) {
+public void setListeAnim(ArrayList<Animal> listeAnim) {
 	this.listeAnim = listeAnim;
 }
 

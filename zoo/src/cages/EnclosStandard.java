@@ -1,8 +1,8 @@
 package cages;
 
-import java.util.ArrayList;
+import animal.Animal;
 
-import animal.Animaux;
+import java.util.ArrayList;
 
 public class EnclosStandard extends Cage {
 	
@@ -11,7 +11,7 @@ public class EnclosStandard extends Cage {
 	public EnclosStandard() {
 
 	}
-	public EnclosStandard(String nomCage, ArrayList<Animaux> listeAnim,int surface, double longueur, double largeur, double hauteur, String typeCage, Environnement environnement) {
+	public EnclosStandard(String nomCage, ArrayList<Animal> listeAnim, int surface, double longueur, double largeur, double hauteur, String typeCage, Environnement environnement) {
 		super(nomCage, listeAnim, surface,longueur, largeur, hauteur, typeCage,  environnement);
 		// TODO Auto-generated constructor stub
 	}
