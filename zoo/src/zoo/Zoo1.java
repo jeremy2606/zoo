@@ -1,6 +1,5 @@
 package zoo;
 
-import animal.Animal;
 import cages.Cage;
 
 import java.util.ArrayList;

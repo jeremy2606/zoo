@@ -1,5 +1,7 @@
 package dbaccess;
 
+import model.Enclos;
+
 import java.util.List;
 
 public interface EnclosInterface {

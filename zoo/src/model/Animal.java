@@ -1,4 +1,4 @@
-package animal;
+package model;
 
 public class Animal {
     String name;
@@ -59,14 +59,4 @@ public class Animal {
         this.commentaires = commentaires;
     }
 
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
-                ", typeEnclos='" + typeEnclos + '\'' +
-                ", typeAnimal='" + typeAnimal + '\'' +
-                ", typeRegimeAlimentaire='" + typeRegimeAlimentaire + '\'' +
-                ", commentaires='" + commentaires + '\'' +
-                '}';
-    }
 }

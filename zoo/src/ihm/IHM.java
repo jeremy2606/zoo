@@ -1,8 +1,17 @@
 package ihm;
 
-import java.util.Vector;
+import model.Animal;
+import model.Enclos;
+import model.TypeAnimal;
+
+import java.util.List;
 
 public interface IHM {
-    public void afficherAnimal(Vector listeTypeAnimal, Vector listeEnclos);
+
+    public List<Animal> getAnimalList();
+
+    public Animal getAnimal(String name);
+
+    public void save(String name, TypeAnimal typeAnimal, Enclos enclos, String commentaire);
 }
 

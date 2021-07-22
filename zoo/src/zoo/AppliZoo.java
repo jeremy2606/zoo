@@ -6,7 +6,7 @@ import java.util.List;
 public class AppliZoo {
 
     public static void main(String[] args) {
-        List<String> mainMenuList = Arrays.asList("Afficher un animal");
+        List<String> mainMenuList = Arrays.asList("Afficher un core.animal");
         IhmConsole console= new IhmConsole();
         console.displayMenu(mainMenuList);
     }

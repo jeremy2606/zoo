@@ -1,4 +1,4 @@
-package dbaccess;
+package model;
 
 public class Enclos {
 

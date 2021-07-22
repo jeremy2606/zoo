@@ -1,6 +1,6 @@
 package cages;
 
-import animal.Animal;
+import model.Animal;
 
 import java.util.ArrayList;
 

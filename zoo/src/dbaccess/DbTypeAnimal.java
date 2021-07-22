@@ -1,5 +1,7 @@
 package dbaccess;
 
+import model.TypeAnimal;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

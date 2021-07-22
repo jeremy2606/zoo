@@ -1,6 +1,6 @@
 package dbaccess;
 
-import animal.Animal;
+import model.Animal;
 
 import java.util.List;
 
