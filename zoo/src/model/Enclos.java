@@ -8,7 +8,6 @@ public class Enclos {
 	private int zooId;
 
 	public Enclos() {
-
 	}
 
 	public Enclos(int id, String name, int typeEnclosId, int zooId) {

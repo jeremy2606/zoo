@@ -1,11 +1,6 @@
-package zoo;
-
 import core.AnimalManager;
 import core.Manager;
 import model.Animal;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class AppliZoo {
 
