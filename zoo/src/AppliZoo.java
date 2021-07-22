@@ -1,5 +1,5 @@
-import core.AnimalManager;
-import core.Manager;
+import metier.AnimalManager;
+import metier.Manager;
 import model.Animal;
 
 public class AppliZoo {

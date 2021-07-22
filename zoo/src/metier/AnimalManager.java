@@ -1,4 +1,4 @@
-package core;
+package metier;
 
 import dbaccess.DaoFactory;
 import dbaccess.DbAnimal;
