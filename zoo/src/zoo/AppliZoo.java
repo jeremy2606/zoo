@@ -1,14 +1,18 @@
 package zoo;
 
+import core.AnimalManager;
+import core.Manager;
+import model.Animal;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class AppliZoo {
 
     public static void main(String[] args) {
-        List<String> mainMenuList = Arrays.asList("Afficher un core.animal");
-        IhmConsole console= new IhmConsole();
-        console.displayMenu(mainMenuList);
+        Manager<Animal> animalManager = new AnimalManager();
+        Animal animal = animalManager.getByName("Gianni");
+        System.out.println(animal);
     }
 }
 

@@ -7,11 +7,11 @@ public class Enclos {
 	private int typeEnclosId;
 	private int zooId;
 
-	Enclos() {
+	public Enclos() {
 
 	}
 
-	Enclos(int id, String name, int typeEnclosId, int zooId) {
+	public Enclos(int id, String name, int typeEnclosId, int zooId) {
 		this.id = id;
 		this.name = name;
 		this.typeEnclosId = typeEnclosId;

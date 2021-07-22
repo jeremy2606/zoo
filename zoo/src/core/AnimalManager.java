@@ -8,7 +8,7 @@ import model.TypeAnimal;
 
 import java.util.List;
 
-public class AnimalManager {
+public class AnimalManager implements Manager{
 
     DbAnimal dao;
 
@@ -16,11 +16,11 @@ public class AnimalManager {
         dao = new DaoFactory().getAnimalDao();
     }
 
-    public List<Animal> getAnimalList() {
+    public List<Animal> getAll() {
         return dao.getAll();
     }
 
-    public Animal getAnimal(String name) {
+    public Animal getByName(String name) {
         return dao.getByName(name);
     }
 
