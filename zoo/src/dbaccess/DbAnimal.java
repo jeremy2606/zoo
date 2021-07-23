@@ -7,15 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Animal;
-
 public class DbAnimal implements AnimalInterface {
 
-	private final Connection connection;
+    private final Connection connection;
 
-	public DbAnimal(Connection connection) {
-		this.connection = connection;
-	}
+    public DbAnimal(Connection connection) {
+        this.connection = connection;
+    }
 
 	public List<Animal> getAll() {
 		List<Animal> listAnimal = new ArrayList<>();
@@ -44,18 +42,19 @@ public class DbAnimal implements AnimalInterface {
 	@Override
 	public void save(Animal animal, int enclosId, int typeAnimalId) {
 
-		String SQLString = "INSERT INTO animal (name, type_animal_id, enclos_id, commentaires) VALUES " + "(?,?,?,?);";
-		try (PreparedStatement saveAnimal = connection.prepareStatement(SQLString)) {
-			saveAnimal.setString(1, animal.getName());
-			saveAnimal.setInt(2, typeAnimalId);
-			saveAnimal.setInt(3, enclosId);
-			saveAnimal.setString(4, animal.getCommentaires());
-			saveAnimal.executeUpdate();
-			connection.commit();
-		} catch (SQLException sqlException) {
-			sqlException.printStackTrace();
-		}
-	}
+        String SQLString = "INSERT INTO animal (name, type_animal_id, enclos_id, commentaires) VALUES " +
+                "(?,?,?,?);";
+        try (PreparedStatement saveAnimal = connection.prepareStatement(SQLString)) {
+            saveAnimal.setString(1, animal.getName());
+            saveAnimal.setInt(2, typeAnimalId);
+            saveAnimal.setInt(3, enclosId);
+            saveAnimal.setString(4, animal.getCommentaires());
+            saveAnimal.executeUpdate();
+            connection.commit();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+    }
 
 	@Override
 	public void update(int animalId, int enclosId) {
