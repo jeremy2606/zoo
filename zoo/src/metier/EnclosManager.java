@@ -9,7 +9,7 @@ import model.TypeEnclos;
 
 public class EnclosManager implements Manager {
 
-	DbEnclos dao;
+	public DbEnclos dao;
 	
 	public EnclosManager() {
 		dao = new DaoFactory().getEnclosDao();
@@ -22,7 +22,8 @@ public class EnclosManager implements Manager {
 
 	@Override
 	public Enclos getByName(String name) {
-		return dao.getByName(name);
+		//return dao.getByName(name);
+		return null;
 	}
 	
 	public void save(int id, String name, int typeEnclosId, int zooId) {
