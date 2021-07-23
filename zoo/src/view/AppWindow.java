@@ -71,5 +71,4 @@ public class AppWindow extends JFrame {
 
 		return menuBarZoo;
 	}
-//TableModel dataModel = new AbstractTableModel() {
 }

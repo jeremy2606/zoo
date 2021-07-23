@@ -31,7 +31,11 @@ public class ModelAnimal extends AbstractTableModel {
 	}
 
 	public Object getValueAt(int row, int col) {
-		return Integer.valueOf(row * col);
+		return animalNameList.get(row);
+	}
+
+	public List<String> getAll(){
+		return this.animalNameList;
 	}
 
 }
