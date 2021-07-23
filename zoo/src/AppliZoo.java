@@ -20,16 +20,6 @@ public class AppliZoo {
 				}
 			}
 		});
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DisplayUpdateWindow2 frame = new DisplayUpdateWindow2();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
 }
