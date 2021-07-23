@@ -31,7 +31,7 @@ public class DbAnimal implements AnimalInterface {
                 "JOIN type_enclos\n" +
                 "ON enclos.type_enclos_id = type_enclos.id;";
         try (PreparedStatement getAllStatement = connection.prepareStatement(SQLString)) {
-            getAllStatement.executeQuery();
+            result = getAllStatement.executeQuery();
             if (result.next()) {
                 Animal animal = new Animal(
                         result.getString(1),
