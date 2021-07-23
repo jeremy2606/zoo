@@ -1,7 +1,10 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,7 +40,7 @@ public class AppWindow extends JFrame {
 		Manager<Animal> animalManager = new AnimalManager();
 		// animalManager metier qui demande a la bdd et qui renvoi l info et donne acces
 		// a la methode getAll
-		ModelAnimal modelAnimal = new ModelAnimal(animalManager.getAll());
+		ModelAnimal modelAnimal = new ModelAnimal();
 		JTable tableAnimals = new JTable(modelAnimal);
 		JScrollPane scrollpaneAnimals = new JScrollPane(tableAnimals);
 		tableAnimals.setFillsViewportHeight(true);
@@ -47,6 +50,47 @@ public class AppWindow extends JFrame {
 		panelAddAnimalButton.add(addAnimalButton);
 		this.getContentPane().add(panelAddAnimalButton, BorderLayout.SOUTH);
 		// JTable)
+		tableAnimals.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							DisplayUpdateWindow2 frame = new DisplayUpdateWindow2();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+
+			}
+		});
 		// contentPane.getComponent(1)).setText(selectedAnimal.getFirstName());
 
 	}

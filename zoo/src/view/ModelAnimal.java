@@ -16,6 +16,7 @@ public class ModelAnimal extends AbstractTableModel {
 	}
 
 	public ModelAnimal(List<Animal> animalList) {
+		animalList = new ArrayList<Animal>();
 		for (Animal animal : animalList) {
 			animalNameList.add(animal.getName());
 		}
