@@ -3,28 +3,25 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import dbaccess.DbEnclos;
 import metier.EnclosManager;
+import dbaccess.*;
 
 
 public class ShowEncloses extends JFrame {
-	
-	EnclosManager eM;
+	EnclosManager eM = new EnclosManager();
 	public JTextArea encloseArea = new JTextArea();
 	
 	public ShowEncloses() {
-		
-		encloseArea.setSize(500, 400);
-		encloseArea.setFont(new Font("Mv Boli", Font.PLAIN, 12));
-		encloseArea.setEditable(false);
-		encloseArea.setForeground(Color.CYAN);
-		JScrollPane encloseScroll = new JScrollPane(encloseArea);
-		encloseScroll.setSize(500, 400);
 		
 		JButton button = new JButton();
 		button.setFocusable(false);
@@ -32,30 +29,37 @@ public class ShowEncloses extends JFrame {
 		button.setBackground(Color.green);
 		button.setFont(new Font("Mv Boli", Font.PLAIN, 11));
 		button.addActionListener(e -> {
-			encloseArea.setText(eM.dao.getAll().toString());
+			//encloseArea.setText(eM.dao.getAll().toString());
+			encloseArea.append("\n" + eM.getAll().toString());
 		});
-		
-		JPanel encloseAreaPanel = new JPanel();
-		encloseAreaPanel.add(encloseScroll);
-		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setSize(150, 50);
 		buttonPanel.add(button);
+		encloseArea.setSize(500, 450);
+		encloseArea.setEditable(false);
+		encloseArea.setFont(new Font("Mv Boli", Font.PLAIN, 14));
+				
+		JScrollPane encloseScroll = new JScrollPane(encloseArea);
+		encloseScroll.setSize(500, 400);
+		
+		JPanel encloseAreaPanel = new JPanel();
+		encloseAreaPanel.setSize(500, 500);
+		encloseAreaPanel.setLayout(new BorderLayout());
+		encloseAreaPanel.add(buttonPanel, BorderLayout.NORTH );
+		encloseAreaPanel.add(encloseScroll, BorderLayout.CENTER);
 		
 		this.setSize(500, 500);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setLayout(new BorderLayout());
-		this.add(encloseAreaPanel, BorderLayout.CENTER);
-		this.add(buttonPanel, BorderLayout.SOUTH);
+		this.add(encloseAreaPanel);
 		this.setVisible(true);
 	}
-	/*
+	// Class main only for testing purposes of this part of graphical interface --deletion later
 	public static void main(String[] args) {
 		
 		
 		new ShowEncloses();
 	}
-	*/
+	
 }
 
 

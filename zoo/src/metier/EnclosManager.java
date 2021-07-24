@@ -22,8 +22,8 @@ public class EnclosManager implements Manager {
 
 	@Override
 	public Enclos getByName(String name) {
-		//return dao.getByName(name);
-		return null;
+		return dao.getByName(name);
+		
 	}
 	
 	public void save(int id, String name, int typeEnclosId, int zooId) {
