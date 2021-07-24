@@ -29,8 +29,9 @@ public class ShowEncloses extends JFrame {
 		button.setBackground(Color.green);
 		button.setFont(new Font("Mv Boli", Font.PLAIN, 11));
 		button.addActionListener(e -> {
-			//encloseArea.setText(eM.dao.getAll().toString());
-			encloseArea.append("\n" + eM.getAll().toString());
+			for(int i = 0; i < eM.getAll().size(); i++) {
+				encloseArea.append("\n" + eM.getAll().get(i).toString());
+			}
 		});
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setSize(150, 50);
