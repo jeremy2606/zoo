@@ -51,7 +51,7 @@ public class Enclos {
 
 	@Override
 	public String toString() {
-		return "Enclos [id=" + id + ", name=" + name + ", typeEnclosId=" + typeEnclosId + ", zooId=" + zooId + "]";
+		return getName();
 	}
 
 }

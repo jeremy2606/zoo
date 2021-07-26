@@ -3,12 +3,10 @@ package metier;
 import dbaccess.DaoFactory;
 import dbaccess.DbAnimal;
 import model.Animal;
-import model.Enclos;
-import model.TypeAnimal;
 
 import java.util.List;
 
-public class AnimalManager implements Manager{
+public class AnimalManager implements Manager {
 
     DbAnimal dao;
 
@@ -24,7 +22,8 @@ public class AnimalManager implements Manager{
         return dao.getByName(name);
     }
 
-    public void save(String name, TypeAnimal typeAnimal, Enclos enclos, String commentaire){
-
+    public void save(String name, int typeAnimalId, int enclosId, String commentaire) {
+        Animal animalToSave = new Animal(name, "", "", "", commentaire);
+        dao.save(animalToSave, typeAnimalId, enclosId);
     }
 }
