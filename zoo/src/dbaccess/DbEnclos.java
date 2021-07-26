@@ -39,7 +39,7 @@ public class DbEnclos implements EnclosInterface {
         try {
             Statement query;
             query = connection.createStatement();
-            ResultSet result = query.executeQuery("SELECT * FROM animal;");
+            ResultSet result = query.executeQuery("SELECT * FROM enclos;");
             while (result.next()) {
                 listEnclos.add(new Enclos(result.getInt(1), result.getString(2), result.getInt(3), result.getInt(4)));
             }
@@ -94,4 +94,7 @@ public class DbEnclos implements EnclosInterface {
         }
     }
 
+    public Object getByName(String name) {
+        return null;
+    }
 }
