@@ -39,7 +39,7 @@ public class DisplayUpdateWindow2 extends JFrame {
 	private JButton deleteButton;
 
 	public DisplayUpdateWindow2() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		this.getContentPane().setLayout(new GridLayout(5, 2, 1, 1));
 		this.setTitle("DELETE UPDATE ANIMAL");
