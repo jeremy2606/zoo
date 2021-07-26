@@ -2,11 +2,10 @@ package metier;
 
 import dbaccess.DaoFactory;
 import dbaccess.DbEnclos;
-import dbaccess.DbTypeAnimal;
 
 import java.util.List;
 
-public class EnclosManager implements Manager{
+public class EnclosManager implements Manager {
 
     DbEnclos dao;
 
