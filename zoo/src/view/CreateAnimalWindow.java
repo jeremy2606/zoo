@@ -1,12 +1,12 @@
 package view;
 
+import metier.AnimalManager;
 import metier.EnclosManager;
 import metier.TypeAnimalManager;
 import model.Enclos;
 import model.TypeAnimal;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.Vector;
 
@@ -38,14 +38,26 @@ public class CreateAnimalWindow extends JFrame {
         JLabel paddockLabel = new JLabel("choix enclos");
         JComboBox<Enclos> paddockValue = new JComboBox(new Vector<Enclos>(new EnclosManager().getAll()));
 
-        JButton addButton = new JButton(("ADD"));
+
         JButton cancelButton = new JButton(("CANCEL"));
+        cancelButton.addActionListener(e -> {
+            this.dispose();
+        });
 
         JLabel commentaryLabel = new JLabel("Commentaires");
         JTextArea commentaryValue = new JTextArea();
         commentaryValue.setToolTipText("Ajoutez vos commentaires ici");
         commentaryValue.setBorder((BorderFactory.createLineBorder(Color.black)));
 
+
+        JButton addButton = new JButton(("ADD"));
+        addButton.addActionListener(e -> {
+            TypeAnimal typeAnimal = (TypeAnimal) (((JComboBox) (this.getContentPane().getComponent(4))).getSelectedItem());
+            Enclos enclos = (Enclos) (((JComboBox) (this.getContentPane().getComponent(6))).getSelectedItem());
+            new AnimalManager().save(nameValue.getText(),
+                    typeAnimal.getId(), enclos.getId(), commentaryValue.getText());
+            this.dispose();
+        });
 
         constraints.anchor = FIRST_LINE_START;
         constraints.fill = BOTH;
@@ -78,9 +90,9 @@ public class CreateAnimalWindow extends JFrame {
         this.getContentPane().add(addButton, constraints);
         constraints.gridy = 4;
         this.getContentPane().add(cancelButton, constraints);
-        constraints.gridx=0;
+        constraints.gridx = 0;
         this.getContentPane().add(commentaryLabel, constraints);
-        constraints.gridx=1;
+        constraints.gridx = 1;
         this.getContentPane().add(commentaryValue, constraints);
     }
 }

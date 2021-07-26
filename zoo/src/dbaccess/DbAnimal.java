@@ -50,7 +50,7 @@ public class DbAnimal implements AnimalInterface {
     }
 
     @Override
-    public void save(Animal animal, int enclosId, int typeAnimalId) {
+    public void save(Animal animal, int typeAnimalId, int enclosId) {
 
         String SQLString = "INSERT INTO animal (name, type_animal_id, enclos_id, commentaires) VALUES " +
                 "(?,?,?,?);";
@@ -60,7 +60,7 @@ public class DbAnimal implements AnimalInterface {
             saveAnimal.setInt(3, enclosId);
             saveAnimal.setString(4, animal.getCommentaires());
             saveAnimal.executeUpdate();
-            connection.commit();
+            //connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -74,7 +74,7 @@ public class DbAnimal implements AnimalInterface {
             updateAnimal.setInt(1, enclosId);
             updateAnimal.setInt(2, animalId);
             updateAnimal.executeUpdate();
-            connection.commit();
+            //connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

@@ -61,6 +61,7 @@ public class DbTypeAnimal implements TypeAnimalInterface {
         try (PreparedStatement getByName = connection.prepareStatement(SQLString)) {
             getByName.setString(1, name);
             result = getByName.executeQuery();
+            result.first();
             typeAnimal = new TypeAnimal(result.getInt(1), result.getString(2),
                     result.getInt(3));
             result.close();
