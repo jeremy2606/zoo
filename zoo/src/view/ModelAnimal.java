@@ -16,11 +16,7 @@ public class ModelAnimal extends AbstractTableModel {
 	}
 
 	public ModelAnimal(List<Animal> animalList) {
-<<<<<<< HEAD
 		animalList = new ArrayList<Animal>();
-=======
-		this.animalNameList = new ArrayList<>();
->>>>>>> refs/remotes/origin/develop
 		for (Animal animal : animalList) {
 			animalNameList.add(animal.getName());
 		}
