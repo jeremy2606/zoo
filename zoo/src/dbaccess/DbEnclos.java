@@ -137,6 +137,7 @@ public class DbEnclos implements EnclosInterface {
             updateEnclos.setInt(3, enclos.getZooId());
             updateEnclos.setInt(4, enclos.getId());
             updateEnclos.executeUpdate();
+            connection.setAutoCommit(false);
             connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
@@ -149,6 +150,7 @@ public class DbEnclos implements EnclosInterface {
         try (PreparedStatement updateEnclos = connection.prepareStatement(SQLString)) {
             updateEnclos.setInt(1, enclos.getId());
             updateEnclos.executeUpdate();
+            connection.setAutoCommit(false);
             connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
