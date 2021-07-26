@@ -4,13 +4,14 @@ import model.Animal;
 import java.awt.EventQueue;
 
 import view.AppWindow;
+import view.CreateAnimalWindow;
 import view.DisplayUpdateWindow2;
 
 public class AppliZoo {
 
 	public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {
+		/*EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					AppWindow frame = new AppWindow();
@@ -29,7 +30,10 @@ public class AppliZoo {
 					e.printStackTrace();
 				}
 			}
-		});
+		});*/
+
+		CreateAnimalWindow animalWindow = new CreateAnimalWindow();
+		animalWindow.setVisible(true);
 	}
 
 }
