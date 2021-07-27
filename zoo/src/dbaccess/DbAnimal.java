@@ -52,7 +52,6 @@ public class DbAnimal implements AnimalInterface {
             saveAnimal.setInt(3, enclosId);
             saveAnimal.setString(4, animal.getCommentaires());
             saveAnimal.executeUpdate();
-            connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -65,7 +64,6 @@ public class DbAnimal implements AnimalInterface {
             updateAnimal.setInt(1, enclosId);
             updateAnimal.setInt(2, animalId);
             updateAnimal.executeUpdate();
-            connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -79,7 +77,6 @@ public class DbAnimal implements AnimalInterface {
             updateAnimal.setString(2, animal.getCommentaires());
             updateAnimal.setInt(3, animalId);
             updateAnimal.executeUpdate();
-            connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -91,7 +88,6 @@ public class DbAnimal implements AnimalInterface {
         try (PreparedStatement updateAnimal = connection.prepareStatement(SQLString)) {
             updateAnimal.setString(1, animal.getName());
             updateAnimal.executeUpdate();
-            connection.commit();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

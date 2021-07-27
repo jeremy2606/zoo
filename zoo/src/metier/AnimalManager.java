@@ -24,6 +24,6 @@ public class AnimalManager implements Manager {
 
     public void save(String name, int typeAnimalId, int enclosId, String commentaire) {
         Animal animalToSave = new Animal(name, "", "", "", commentaire);
-        dao.save(animalToSave, typeAnimalId, enclosId);
+        dao.save(animalToSave, enclosId, typeAnimalId);
     }
 }
