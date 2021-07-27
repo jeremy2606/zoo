@@ -24,7 +24,7 @@ import model.Animal;
 
 public class AppWindow extends JFrame {
 
-	private JPanel contentPane;
+	public static JPanel contentPane;
 
 	public AppWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

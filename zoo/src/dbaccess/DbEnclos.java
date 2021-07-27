@@ -106,7 +106,6 @@ public class DbEnclos implements EnclosInterface {
         } catch (SQLException se) {
             se.printStackTrace();
         }
-        System.out.println(listEnclos);
         return listEnclos;
     }
 
@@ -157,8 +156,4 @@ public class DbEnclos implements EnclosInterface {
         }
     }
 
-
-    public Object getByName(String name) {
-        return null;
-    }
 }
