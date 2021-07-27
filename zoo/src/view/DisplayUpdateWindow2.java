@@ -1,28 +1,27 @@
 package view;
 
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import metier.AnimalManager;
+import metier.TypeAnimalManager;
+import metier.TypeEnclosManager;
 import model.Animal;
 import model.Enclos;
+import model.TypeAnimal;
+import model.TypeEnclos;
 
 public class DisplayUpdateWindow2 extends JFrame {
-
-	private JPanel contentPane;
-
-	private JPanel panel1;
-	private JPanel panel2;
-	private JPanel panel3;
-	private JPanel panel4;
-	private JPanel panel5;
 
 	private JLabel nameLabel;
 	private JTextField nameTextField;
@@ -31,33 +30,52 @@ public class DisplayUpdateWindow2 extends JFrame {
 	private JComboBox<Animal> typeAnimalComboBox;
 	private JLabel enclosLabel;
 	private JLabel enclosBoxLabel;
-	private JComboBox<Enclos> enclosComboBox;
+	private JComboBox<String> enclosComboBox;
 	private JLabel commentLabel;
 	JScrollPane commentScrolPane;
 	private JTextField commentJTextField;
 	private JButton updateButton;
 	private JButton deleteButton;
-
+	private List<TypeAnimal> animalTypeList;
 	public DisplayUpdateWindow2() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		this.getContentPane().setLayout(new GridLayout(5, 2, 1, 1));
 		this.setTitle("DELETE UPDATE ANIMAL");
-//		createPanel1();
-//		createPanel2();
-//		createPanel3();
-//		createPanel4();
-		nameLabel = new JLabel("Name");
-		nameTextField = new JTextField("Edit");
-		typeAnimalLabel = new JLabel("Type animal");
-		typeAnimalBoxLabel = new JLabel("Ours");
-		typeAnimalComboBox = new JComboBox<Animal>(new Vector<Animal>());
-		typeAnimalBoxLabel.add(typeAnimalComboBox);
-		enclosLabel = new JLabel("Enclos");
-		enclosBoxLabel = new JLabel("Aquarium");
 
-		enclosComboBox = new JComboBox<Enclos>(new Vector<Enclos>());
-		enclosBoxLabel.add(enclosComboBox);
+		nameLabel = new JLabel("Name");
+		String name;
+		JTable table = ((JTable) (((JScrollPane) (AppWindow.contentPane.getComponent(0))).getViewport().getView()));
+		int index = table.getSelectedRow();
+		name = table.getModel().getValueAt(index, 0)
+				.toString();
+		JTextField nameTextField = new JTextField(name);
+		
+		TypeAnimalManager animalTypeManager = new TypeAnimalManager();
+		animalTypeList = animalTypeManager.getAll();
+		ArrayList<String> animalTypeNameList = new ArrayList<String>();
+		for (TypeAnimal typeAnimal : animalTypeList ) {
+			animalTypeNameList.add(typeAnimal.getName()) ; 
+		}
+		AnimalManager animalManager = new AnimalManager();
+		typeAnimalLabel = new JLabel("Type animal");
+		//typeAnimalBoxLabel = new JLabel();
+		JComboBox<String> typeAnimalComboBox = new JComboBox<String>(new Vector<String>(animalTypeNameList));
+		//typeAnimalBoxLabel.add(typeAnimalComboBox);
+		typeAnimalComboBox.setSelectedItem(animalManager.getByName(name).getTypeAnimal());
+		enclosLabel = new JLabel("Enclos Type");
+        TypeEnclosManager typeEnclosManager = new TypeEnclosManager();
+        
+        ArrayList<String> typeEnclosTypeNameList = new ArrayList<String>();
+        ArrayList<TypeEnclos> typeEnclosList = new ArrayList<TypeEnclos>() ;
+        typeEnclosList = (ArrayList<TypeEnclos>) typeEnclosManager.getAll();
+        for (TypeEnclos typeEnclos : typeEnclosList ) {
+            typeEnclosTypeNameList.add(typeEnclos.getName());
+        }
+   
+        enclosComboBox = new JComboBox<String>(new Vector<String>(typeEnclosTypeNameList));
+        enclosComboBox.setSelectedItem(animalManager.getByName(name).getTypeEnclos());
+	
 		commentLabel = new JLabel("Commentaire");
 		commentJTextField = new JTextField("Edit");
 		updateButton = new JButton("Update");
@@ -69,7 +87,7 @@ public class DisplayUpdateWindow2 extends JFrame {
 //		this.getContentPane().add(createPanel3());
 //		this.getContentPane().add(createPanel4());
 		commentScrolPane = new JScrollPane(commentJTextField);
-
+		commentJTextField.setText(animalManager.getByName(name).getCommentaires());
 		this.getContentPane().add(nameLabel);
 		this.getContentPane().add(nameTextField);
 		this.getContentPane().add(typeAnimalLabel);

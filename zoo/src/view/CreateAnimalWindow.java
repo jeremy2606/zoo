@@ -94,5 +94,6 @@ public class CreateAnimalWindow extends JFrame {
         this.getContentPane().add(commentaryLabel, constraints);
         constraints.gridx = 1;
         this.getContentPane().add(commentaryValue, constraints);
+       
     }
 }

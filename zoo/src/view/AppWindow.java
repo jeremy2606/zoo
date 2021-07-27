@@ -2,6 +2,8 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -24,7 +26,7 @@ import model.Animal;
 
 public class AppWindow extends JFrame {
 
-	private JPanel contentPane;
+	public static JPanel contentPane;
 
 	public AppWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,6 +103,7 @@ public class AppWindow extends JFrame {
 		JMenu menuEnclos = new JMenu("Enclos");
 		menuBarZoo.add(menuEnclos);
 		JMenuItem addItemEnclos = new JMenuItem("Ajouter");
+		
 		addItemEnclos.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_DOWN_MASK));
 		menuEnclos.add(addItemEnclos);
 		addItemEnclos.setIcon(new ImageIcon("zoo/src/icons/cageIcon.png"));
@@ -109,6 +112,14 @@ public class AppWindow extends JFrame {
 
 		menuBarZoo.add(menuAnimal);
 		JMenuItem addItemAnimal = new JMenuItem("Ajouter");
+		addItemAnimal.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CreateAnimalWindow createAnimalWindow = new CreateAnimalWindow();
+				createAnimalWindow.setVisible(true);
+			}
+		} );
 		addItemAnimal.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
 		menuAnimal.add(addItemAnimal);
 		addItemAnimal.setIcon(new ImageIcon("zoo/src/icons/bearIcon.jpg"));
