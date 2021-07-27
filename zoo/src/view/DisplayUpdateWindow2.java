@@ -71,7 +71,6 @@ public class DisplayUpdateWindow2 extends JFrame {
 		commentScrolPane = new JScrollPane(commentJTextField);
 
 		this.getContentPane().add(nameLabel);
-		nameLabel.setText(getName());
 		this.getContentPane().add(nameTextField);
 		this.getContentPane().add(typeAnimalLabel);
 		this.getContentPane().add(typeAnimalComboBox);
