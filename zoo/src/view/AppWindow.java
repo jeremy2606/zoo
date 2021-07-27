@@ -40,7 +40,7 @@ public class AppWindow extends JFrame {
 		Manager<Animal> animalManager = new AnimalManager();
 		// animalManager metier qui demande a la bdd et qui renvoi l info et donne acces
 		// a la methode getAll
-		ModelAnimal modelAnimal = new ModelAnimal();
+		ModelAnimal modelAnimal = new ModelAnimal(animalManager.getAll());
 		JTable tableAnimals = new JTable(modelAnimal);
 		JScrollPane scrollpaneAnimals = new JScrollPane(tableAnimals);
 		tableAnimals.setFillsViewportHeight(true);
