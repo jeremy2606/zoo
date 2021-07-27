@@ -158,4 +158,7 @@ public class DbEnclos implements EnclosInterface {
     }
 
 
+    public Object getByName(String name) {
+        return null;
+    }
 }

@@ -1,10 +1,6 @@
-import metier.AnimalManager;
-import metier.Manager;
-import model.Animal;
 import java.awt.EventQueue;
 
 import view.AppWindow;
-import view.DisplayUpdateWindow2;
 
 public class AppliZoo {
 

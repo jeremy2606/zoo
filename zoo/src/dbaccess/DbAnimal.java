@@ -20,25 +20,17 @@ public class DbAnimal implements AnimalInterface {
     public List<Animal> getAll() {
         List<Animal> listAnimal = new ArrayList<>();
         ResultSet result = null;
-        String SQLString = "SELECT animal.name, type_enclos.name, type_animal.name, type_regime_alimentaire.name, animal.commentaires\n" +
-                "FROM animal\n" +
-                "JOIN type_animal\n" +
-                "ON animal.type_animal_id = type_animal.id\n" +
-                "JOIN type_regime_alimentaire\n" +
-                "ON type_animal.type_regime_alimentaire_id = type_regime_alimentaire.id\n" +
-                "JOIN enclos\n" +
-                "ON animal.enclos_id = enclos.id\n" +
-                "JOIN type_enclos\n" +
-                "ON enclos.type_enclos_id = type_enclos.id;";
+        String SQLString = "SELECT animal.name, type_enclos.name, type_animal.name, type_regime_alimentaire.name, animal.commentaires\n"
+                + "FROM animal\n" + "JOIN type_animal\n" + "ON animal.type_animal_id = type_animal.id\n"
+                + "JOIN type_regime_alimentaire\n"
+                + "ON type_animal.type_regime_alimentaire_id = type_regime_alimentaire.id\n" + "JOIN enclos\n"
+                + "ON animal.enclos_id = enclos.id\n" + "JOIN type_enclos\n"
+                + "ON enclos.type_enclos_id = type_enclos.id;";
         try (PreparedStatement getAllStatement = connection.prepareStatement(SQLString)) {
             result = getAllStatement.executeQuery();
             while (result.next()) {
-                Animal animal = new Animal(
-                        result.getString(1),
-                        result.getString(2),
-                        result.getString(3),
-                        result.getString(4),
-                        result.getString(5));
+                Animal animal = new Animal(result.getString(1), result.getString(2), result.getString(3),
+                        result.getString(4), result.getString(5));
                 listAnimal.add(animal);
             }
             result.close();
@@ -68,7 +60,6 @@ public class DbAnimal implements AnimalInterface {
 
     @Override
     public void update(int animalId, int enclosId) {
-        // todo : changer le type enclos suivant l'enclos id
         String SQLString = "UPDATE animal SET enclos_id = ? WHERE id = ?;";
         try (PreparedStatement updateAnimal = connection.prepareStatement(SQLString)) {
             updateAnimal.setInt(1, enclosId);
@@ -110,26 +101,17 @@ public class DbAnimal implements AnimalInterface {
     public Animal getById(int id) {
         Animal animal = null;
         ResultSet result;
-        String SQLString = "SELECT animal.name, type_enclos.name, type_animal.name, type_regime_alimentaire.name, animal.commentaires\n" +
-                "FROM animal\n" +
-                "JOIN type_animal\n" +
-                "ON animal.type_animal_id = type_animal.id\n" +
-                "JOIN type_regime_alimentaire\n" +
-                "ON type_animal.type_regime_alimentaire_id = type_regime_alimentaire.id\n" +
-                "JOIN enclos\n" +
-                "ON animal.enclos_id = enclos.id\n" +
-                "JOIN type_enclos\n" +
-                "ON enclos.type_enclos_id = type_enclos.id\n" +
-                "WHERE animal.id = ?;";
+        String SQLString = "SELECT animal.name, type_enclos.name, type_animal.name, type_regime_alimentaire.name, animal.commentaires\n"
+                + "FROM animal\n" + "JOIN type_animal\n" + "ON animal.type_animal_id = type_animal.id\n"
+                + "JOIN type_regime_alimentaire\n"
+                + "ON type_animal.type_regime_alimentaire_id = type_regime_alimentaire.id\n" + "JOIN enclos\n"
+                + "ON animal.enclos_id = enclos.id\n" + "JOIN type_enclos\n"
+                + "ON enclos.type_enclos_id = type_enclos.id\n" + "WHERE animal.id = ?;";
         try (PreparedStatement getByIdStatement = connection.prepareStatement(SQLString)) {
             getByIdStatement.setInt(1, id);
             result = getByIdStatement.executeQuery();
             if (result.next()) {
-                animal = new Animal(
-                        result.getString(1),
-                        result.getString(2),
-                        result.getString(3),
-                        result.getString(4),
+                animal = new Animal(result.getString(1), result.getString(2), result.getString(3), result.getString(4),
                         result.getString(5));
                 result.close();
             }
@@ -143,26 +125,17 @@ public class DbAnimal implements AnimalInterface {
     public Animal getByName(String name) {
         Animal animal = null;
         ResultSet result;
-        String SQLString = "SELECT animal.name, type_enclos.name, type_animal.name, type_regime_alimentaire.name, animal.commentaires\n" +
-                "FROM animal\n" +
-                "JOIN type_animal\n" +
-                "ON animal.type_animal_id = type_animal.id\n" +
-                "JOIN type_regime_alimentaire\n" +
-                "ON type_animal.type_regime_alimentaire_id = type_regime_alimentaire.id\n" +
-                "JOIN enclos\n" +
-                "ON animal.enclos_id = enclos.id\n" +
-                "JOIN type_enclos\n" +
-                "ON enclos.type_enclos_id = type_enclos.id\n" +
-                "WHERE animal.name = ?;";
+        String SQLString = "SELECT animal.name, type_enclos.name, type_animal.name, type_regime_alimentaire.name, animal.commentaires\n"
+                + "FROM animal\n" + "JOIN type_animal\n" + "ON animal.type_animal_id = type_animal.id\n"
+                + "JOIN type_regime_alimentaire\n"
+                + "ON type_animal.type_regime_alimentaire_id = type_regime_alimentaire.id\n" + "JOIN enclos\n"
+                + "ON animal.enclos_id = enclos.id\n" + "JOIN type_enclos\n"
+                + "ON enclos.type_enclos_id = type_enclos.id\n" + "WHERE animal.name = ?;";
         try (PreparedStatement getByIdStatement = connection.prepareStatement(SQLString)) {
             getByIdStatement.setString(1, name);
             result = getByIdStatement.executeQuery();
             if (result.next()) {
-                animal = new Animal(
-                        result.getString(1),
-                        result.getString(2),
-                        result.getString(3),
-                        result.getString(4),
+                animal = new Animal(result.getString(1), result.getString(2), result.getString(3), result.getString(4),
                         result.getString(5));
                 result.close();
             }

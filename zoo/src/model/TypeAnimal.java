@@ -38,9 +38,6 @@ public class TypeAnimal {
 
 	@Override
     public String toString() {
-        return "TypeAnimal{" +
-                "id=" + id +
-                ", name='" + name + ", regime_alim_id='" + regime_alim_id + '\'' +
-                '}';
+        return this.getName();
     }
 }
